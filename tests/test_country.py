@@ -5,7 +5,6 @@ class TestCountry(unittest.TestCase):
     def setUp(self):
         self.country = Country("South Africa","Africa", True)
 
-
     def test_country_has_name(self):
         self.assertEqual("South Africa", self.country.name)
 
