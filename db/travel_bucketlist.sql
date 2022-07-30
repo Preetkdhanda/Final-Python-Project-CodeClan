@@ -12,8 +12,8 @@ CREATE TABLE continents (
 CREATE TABLE countries(
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
-    visited BOOLEAN,
-    continent_id INT REFERENCES continents(id)
+    continent_id INT REFERENCES continents(id),
+    visited BOOLEAN
 
 );
 
