@@ -18,11 +18,38 @@ h2{
 
     color:blanchedalmond;
     text-align: center;
-    font-size: 80px;
+    font-size: 60px;
 }
 p {
 
     text-align: center;
     color: blanchedalmond;
-    font-size: 60px;
+    font-size: 40px;
 }
+
+
+  ul{
+
+    list-style: none;
+  }
+
+
+  
+  /* Style the navigation menu */
+  #myMenu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Style the navigation links */
+  #myMenu li a {
+    padding: 3px;
+    text-decoration: none;
+    color: grey;
+    display: block
+  }
+  
+  #myMenu li a:hover {
+    background-color: #eee;
+  }
