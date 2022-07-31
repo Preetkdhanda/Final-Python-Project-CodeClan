@@ -4,3 +4,6 @@ class Country:
         self.continent = continent
         self.visited = visited
         self.id = id
+
+    def mark_visited(self):
+        self.visited = True

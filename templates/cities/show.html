@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+<h2>Cities On The Bucket List!</h2>
+
+{%for cities in cities%}
+
+<section>{{cities.name}}, {{cities.continent.name}}, {{cities.country.name}}
+    {% if cities.visited == True %}
+    Yaaas!! Another destination done!
+    {% endif %}
+    {% if cities.visited == False %}
+    Gotta get them monies!
+    {% endif %}
+</section>
+{% endfor %}
+
+
+{% endblock %}

@@ -3,3 +3,6 @@ class Continent:
         self.name = name
         self.visited = visited
         self.id = id
+
+    def mark_visited(self):
+        self.visited = True

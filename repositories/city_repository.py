@@ -7,11 +7,28 @@ import repositories.continent_repository as continent_repository
 import repositories.country_repository as country_repository
 
 def save(city):
-    sql = "INSERT INTO cities ( name, country_id, continent_id, visited ) VALUES ( %s, %s, %s, %s ) RETURNING id"
-    values = [city.name, city.country.id, city.continent.id, city.visited]
-    results = run_sql( sql, values )
-    city.id = results[0]['id']
+    sql = "INSERT INTO cities (name, visited, country_id, continent_id) VALUES (%s, %s, %s, %s) RETURNING *"
+    values = [city.name, city.visited, city.country.id, city.continent.id]
+    results = run_sql(sql, values)
+    id = results[0]['id']
+    city.id = id
     return city
+
+
+
+def select(id):
+    city = None
+    sql = "SELECT * FROM cities WHERE id = %s"
+    values = [id]
+    results = run_sql(sql, values)
+
+    if results:
+        result = results[0]
+        continent = continent_repository.select(result['id'])
+        country = country_repository.select(result['id'])
+        City = City(result['name'],result['visited'], country, continent, result['id'] )
+    return city
+
 
 def select_all():
     cities = []

@@ -1,0 +1,42 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+
+<h2>Add A City To Explore!</h2>
+
+<form action="/countries" method="post">
+    <div>
+      <label for="country">Country:</label>
+      <input type="text" id="country" name="country" placeholder="Portugal" required autofocus>
+    </div>
+  
+   
+    <div>
+        <label for="continent">Continent:</label>
+        <select id="continent" name="continent_id">
+          {% for continents in continents %}
+            <option value="{{ continents.id }}">{{ continents.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    
+
+    <div>
+      <label for="visited">Visited:</label>
+      <select id="visited" name="visited">
+        <option value="true">Been There Done That!</option>
+        <option value="false">Gotta Save My Dolla To Go!</option>
+      </select>
+    </div>
+  
+
+  
+    <button type="submit">Add To The Bucketlist!</button>
+  
+  </form>
+
+             
+    
+
+{% endblock %}

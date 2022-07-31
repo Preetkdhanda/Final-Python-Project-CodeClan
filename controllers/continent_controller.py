@@ -12,3 +12,4 @@ continents_blueprint = Blueprint("continents", __name__)
 def continents():
     continents = continent_repository.select_all() 
     return render_template("continents/index.html", continents=continents)
+

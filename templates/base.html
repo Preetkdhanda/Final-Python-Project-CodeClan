@@ -4,19 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
     <title>Wanderlust</title>
 </head>
 <body>
-    <h1>Wanderlust</h1>
+  <style>
+    main {
+      background-image: url('https://www.ikea.com/gb/en/images/products/bjoerksta-picture-with-frame-black-and-white-world-map-aluminium-colour__0996864_pe822547_s5.jpg?f=xl');
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 1000px;
+    }
+    </style>
+    <h1 id="mainpageheader"><i>Wanderlust</i></h1>
     <nav>
         <ul>
           <li>
             <a href="/cities"> Cities</a>
           </li>
           <li>
+            <a href="/cities/new"> Add A New City To The Bucket List!</a>
+          </li>
+          <li>
             <a href="/countries">Countries</a>
+          </li>
+          <li>
+            <a href="/countries/new"> Add A New Country To The Bucket List!</a>
           </li>
           <li>
             <a href="/continents">Continents</a>
@@ -24,8 +38,10 @@
         </ul>
       </nav>
       <hr>
+      <main>
       {% block content %}
       {% endblock %}
+      </main>
       <hr>
       <footer>Wanderlust 2022</footer>
 </body>
