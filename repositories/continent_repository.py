@@ -51,3 +51,8 @@ def countries(continent):
 def delete_all():
     sql = "DELETE FROM continents"
     run_sql(sql)
+
+def update(continent):
+    sql = "UPDATE continents SET (name, visited) = (%s, %s) WHERE id = %s"
+    values = [continent.name, continent.visited, continent.id]
+    run_sql(sql, values)    

@@ -13,7 +13,6 @@ def save(city):
     city.id = results[0]['id']
     return city
 
-
 def select_all():
     cities = []
 
@@ -21,8 +20,8 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        continent = continent_repository.select(row['user_id'])
-        country = country_repository.select(row['location_id'])
+        continent = continent_repository.select(row['continent_id'])
+        country = country_repository.select(row['country_id'])
         city = City(row['name'], continent, country, row['visited'], row['id'])
         cities.append(city)
     return cities
@@ -30,7 +29,7 @@ def select_all():
 
 def country(city):
     sql = "SELECT * FROM countries WHERE id = %s"
-    values = [city.location.id]
+    values = [city.country.id]
     results = run_sql(sql, values)[0]
     country = Country(results['name'], results['country_id'], results['continent_id'], results['visited'],results['id'])
     return country
@@ -51,4 +50,9 @@ def delete_all():
 def delete(id):
     sql = "DELETE FROM cities WHERE id = %s"
     values = [id]
+    run_sql(sql, values)
+
+def update(city):
+    sql = "UPDATE cities SET (name, visited, country_id, continent_id) = (%s, %s, %s, %s) WHERE id = %s"
+    values = [city.name, city.visited, city.country.id, city.continent.id]
     run_sql(sql, values)

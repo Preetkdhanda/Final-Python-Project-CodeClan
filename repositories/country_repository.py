@@ -2,10 +2,11 @@ from db.run_sql import run_sql
 
 from models.continent import Continent
 from models.country import Country
+import repositories.continent_repository as continent_repository
 
 def save(country):
-    sql = "INSERT INTO countries ( name, continent_id) VALUES ( %s, %s) RETURNING id"
-    values = [country.name, country.continent_id]
+    sql = "INSERT INTO countries (name, continent_id, visited) VALUES ( %s, %s, %s) RETURNING id"
+    values = [country.name, country.continent.id, country.visited]
     results = run_sql( sql, values )
     country.id = results[0]['id']
     return country
@@ -17,7 +18,8 @@ def select_all():
     sql = "SELECT * FROM countries"
     results = run_sql(sql)
     for row in results:
-        country = Country(row['name'], row['visited'], row['continent_id'], row['id'])
+        continent = continent_repository.select(row['continent_id'])
+        country = Country(row['name'], continent ,row['visited'], row['id'])
         countries.append(country)
     return countries
 
@@ -31,7 +33,7 @@ def select(id):
     
     if results:
         result = results[0]
-        country = Country(result['name'], result['visited'], result['country_id'], result['id'] )
+        country = Country(result['name'], result['visited'], result['continent_id'], result['id'] )
     return country
 
 
@@ -51,4 +53,9 @@ def continents(city):
 
 def delete_all():
     sql = "DELETE FROM countries"
-    run_sql(sql)
+    run_sql(sql)    
+
+def update(country):
+    sql = "UPDATE countries SET (name, continent_id, visited) = (%s, %s, %s) WHERE id = %s"
+    values = [country.name, country.continent.id, country.visited, country.id]
+    run_sql(sql, values)
