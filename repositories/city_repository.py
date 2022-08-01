@@ -7,8 +7,8 @@ import repositories.continent_repository as continent_repository
 import repositories.country_repository as country_repository
 
 def save(city):
-    sql = "INSERT INTO cities (name, visited, country_id, continent_id) VALUES (%s, %s, %s, %s) RETURNING *"
-    values = [city.name, city.visited, city.country.id, city.continent.id]
+    sql = "INSERT INTO cities (name, country_id, continent_id, visited) VALUES (%s, %s, %s, %s) RETURNING *"
+    values = [city.name, city.country.id, city.continent.id, city.visited]
     results = run_sql(sql, values)
     id = results[0]['id']
     city.id = id
@@ -26,7 +26,7 @@ def select(id):
         result = results[0]
         continent = continent_repository.select(result['id'])
         country = country_repository.select(result['id'])
-        City = City(result['name'],result['visited'], country, continent, result['id'] )
+        City = City(result['name'],country, continent,result['visited'], result['id'] )
     return city
 
 
@@ -39,7 +39,7 @@ def select_all():
     for row in results:
         continent = continent_repository.select(row['continent_id'])
         country = country_repository.select(row['country_id'])
-        city = City(row['name'], continent, country, row['visited'], row['id'])
+        city = City(row['name'], country, continent, row['visited'], row['id'])
         cities.append(city)
     return cities
 

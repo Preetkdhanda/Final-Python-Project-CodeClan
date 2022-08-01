@@ -22,7 +22,7 @@ def add_to_bucketlist():
     country_name       = request.form['country']
     continent_id    = request.form['continent_id']
     visited   = request.form['visited']
-    continent       = (continent_repository.select(continent_id))
-    country     = Country(country_name, visited, continent)
+    continent       = continent_repository.select(continent_id)
+    country     = Country(country_name, continent, visited)
     country_repository.save(country)
     return redirect('/countries')

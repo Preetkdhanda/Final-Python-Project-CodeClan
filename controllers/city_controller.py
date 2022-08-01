@@ -23,26 +23,16 @@ def new_city():
     countries = country_repository.select_all()
     return render_template("cities/new.html", continents=continents, countries = countries)
 
-# @cities_blueprint.route("/cities", methods=['POST'])
-# def add_city():
-#     city_name = request.form['city']
-#     continent_id = request.form['continents_id']
-#     country_id= request.form['countries_id']
-#     continent = continent_repository.select(continent_id)
-#     country = country_repository.select(country_id)
-
-#     city = City (city_name, country, continent, False)
-#     city_repository.save(city)
-#     return redirect('/cities')
     
 
 @cities_blueprint.route("/cities",  methods=['POST'])
 def add_to_bucketlist():
     city_name       = request.form['city']
     continent_id    = request.form['continent_id']
-    country    = request.form['country_id']
+    country_id    = request.form['country_id']
     visited   = request.form['visited']
-    continent       = (continent_repository.select(continent_id))
-    city      = City(city_name, visited, country, continent)
+    country = country_repository.select(country_id)
+    continent = continent_repository.select(continent_id)
+    city      = City(city_name, country, continent, visited)
     city_repository.save(city)
     return redirect('/cities')

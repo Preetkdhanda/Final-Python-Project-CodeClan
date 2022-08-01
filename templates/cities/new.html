@@ -12,9 +12,14 @@
     </div>
   
     <div>
-      <label for="country_id">Country:</label>
-      <input type="text" id="country_id" name="country_id" placeholder="France" required>
+      <label for="country">Country:</label>
+      <select id="country_id" name="country_id">
+        {% for countries in countries %}
+        <option value="{{ countries.id}}">{{countries.name}}</option>
+        {% endfor %}
+      </select>
     </div>
+  
   
     <div>
         <label for="continent">Continent:</label>
