@@ -2,16 +2,26 @@
 
 {% block content %}
 
+<h2>Cities On The Bucket List!</h2>
+
+{%for cities in cities%}
+
+<section>{{cities.name}}, {{cities.continent.name}}, {{cities.country.name}}
+    {% if cities.visited == True %}
+    Yaaas!! Another destination done!
+    {% endif %}
+    {% if cities.visited == False %}
+    Gotta get them monies!
+    {% endif %}
+    <p><a href="/cities/{{cities.id}}/edit">Edit</a></p>
 
 
-  <div >
-  
-      hey
-      
-      </div>
-  
-      
-  
+    <form class="delete-form" action="/cities/{{cities.id}}/delete" method="POST">
+    <button type="submit"> Remove From The Bucketlist!</button> 
+      </form>
+</section>
+{% endfor %}
 
 
 {% endblock %}
+

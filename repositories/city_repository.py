@@ -24,9 +24,9 @@ def select(id):
 
     if results:
         result = results[0]
-        continent = continent_repository.select(result['id'])
-        country = country_repository.select(result['id'])
-        City = City(result['name'],country, continent,result['visited'], result['id'] )
+        continent = continent_repository.select(result['continent_id'])
+        country = country_repository.select(result['country_id'])
+        city = City(result['name'], country, continent ,result['visited'], result['id'] )
     return city
 
 
@@ -71,5 +71,5 @@ def delete(id):
 
 def update(city):
     sql = "UPDATE cities SET (name, visited, country_id, continent_id) = (%s, %s, %s, %s) WHERE id = %s"
-    values = [city.name, city.visited, city.country.id, city.continent.id]
+    values = [city.name, city.visited, city.country.id, city.continent.id, city.id]
     run_sql(sql, values)

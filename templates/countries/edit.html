@@ -1,0 +1,48 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+
+
+  
+
+<form action="/countries/{{country.id}}" method="post">
+
+  <div>
+    <label for="country"> Country: </label>
+    <select id="country" name="country">
+     
+      <option value="{{country.name}}"> {{country.name}}</option>
+    </select>
+   
+
+
+  </div>
+
+ 
+  <div>
+
+      <input type="text" id="continent_id" name="continent_id" value="{{country.continent}}" hidden>
+      
+    </div>
+  
+
+  <div>
+    <label for="visited">Visited:</label>
+    <select id="visited" name="visited">
+      <option value="true"
+      {% if country.visited == True %} selected="selected" {% endif %}>Been There Done That!</option>
+      <option value="false"
+      {% if country.visited == False %} selected="selected" {% endif %}>Gotta Save My Dolla To Go!</option>
+    </select>
+  </div>
+
+
+  <button type="submit">Update The Bucketlist!</button>
+
+
+
+
+
+</form>
+{% endblock %}

@@ -33,7 +33,7 @@ def select(id):
     
     if results:
         result = results[0]
-        country = Country(result['name'], result['visited'], result['continent_id'], result['id'] )
+        country = Country(result['name'],  result['continent_id'], result['visited'],result['id'] )
     return country
 
 
@@ -50,6 +50,10 @@ def continents(city):
 
     return continents
 
+def delete(id):
+    sql = "DELETE FROM countries WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
 
 def delete_all():
     sql = "DELETE FROM countries"
