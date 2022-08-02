@@ -3,22 +3,24 @@
 {% block content %}
 
 <h2>Countries On The Bucket List!</h2>
-
+<div class="places">
 {%for countries in countries%}
 
-<section>{{countries.name}}, {{countries.continent.name}}
-    {% if countries.visited == True %}
+<section class="specific_places">
+    <div class="mainhead">{{countries.name}}</div> <div class="sub2">{{countries.continent.name}}</div>
+    <div class="sub2">{% if countries.visited == True %}
     Yaaas!! Another destination done!
     {% endif %}
     {% if countries.visited == False %}
     Gotta get them monies!
-    {% endif %}
-    <p><a href="/countries/{{countries.id}}/edit">Edit</a></p>
+    {% endif %}</div>
+    <a href="/countries/{{countries.id}}/edit">Edit</a>
 
     <form class="delete-form" action="/countries/{{countries.id}}/delete" method="POST">
         <button type="submit"> Remove From The Bucketlist!</button> 
 </section>
 {% endfor %}
+</div>
 
 
 {% endblock %}

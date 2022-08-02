@@ -63,4 +63,5 @@ city=City("Johannesburg", country, continent)
 city_repository.save(city)
 city=City("Accra", country4, continent)
 city_repository.save(city)
-
+city=City("Tanzania", country4, continent)
+city_repository.save(city)

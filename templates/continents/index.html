@@ -2,12 +2,12 @@
 
 {% block content %}
 
-
+<div class="places">
 
 {%for continents in continents%}
 
-<section>{{continents.name}}</section>
+<section class="specific_places"><div class="mainhead">{{continents.name}}</div></section>
 {% endfor %}
-
+</div>
 
 {% endblock %}
