@@ -10,6 +10,19 @@ footer{
     
 }
 
+a:any-link { 
+
+  color:grey;
+
+
+}
+
+button {
+
+  background-color: #ffffffcf;
+  color: grey;
+}
+
 .show{
 
 text-align: center;
@@ -147,7 +160,7 @@ p {
     
   }
 
-
+  
   
 
   /* Style the navigation menu */

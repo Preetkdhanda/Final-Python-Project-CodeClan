@@ -5,12 +5,12 @@
 <h2>Cities On The Bucket List!</h2>
 
 
- <section>{{city.name}}
+ <section class = "show">{{city.name}}
     {% if city.visited == True %}
-    Yaaas!! Another destination done!
+    Yaaas!! Another destination done!!
     {% endif %}
     {% if city.visited == False %}
-    Gotta Earn That Dolla!
+    Gotta Earn That Dolla!!
     {% endif %}
     <p id="editbutton"><a href="/cities/{{city.id}}/edit">Edit</a></p>
 </section> 
