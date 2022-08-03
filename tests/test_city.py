@@ -10,10 +10,10 @@ class TestCity(unittest.TestCase):
         self.assertEqual("Cape Town", self.city.name)
 
     def test_city_has_country(self):
-        self.assertEqual('South Africa', self.city.country_id)
+        self.assertEqual('South Africa', self.city.country)
 
     def test_city_has_continent(self):
-        self.assertEqual('Africa', self.city.continent_id)
+        self.assertEqual('Africa', self.city.continent)
 
     def test_city_has_been_visited(self):
         self.assertEqual(True, self.city.visited)

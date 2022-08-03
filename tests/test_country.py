@@ -9,7 +9,7 @@ class TestCountry(unittest.TestCase):
         self.assertEqual("South Africa", self.country.name)
 
     def test_country_has_continent(self):
-        self.assertEqual("Africa", self.country.continent_id)
+        self.assertEqual("Africa", self.country.continent)
 
     def test_country_has_been_visited(self):
         self.assertEqual(True, self.country.visited)
