@@ -5,7 +5,7 @@ from models.country import Country
 import repositories.continent_repository as continent_repository
 
 def save(country):
-    sql = "INSERT INTO countries (name, continent_id, visited) VALUES ( %s, %s, %s) RETURNING id"
+    sql = "INSERT INTO countries (name, continent_id, visited) VALUES ( %s, %s, %s) RETURNING *"
     values = [country.name, country.continent.id, country.visited]
     results = run_sql( sql, values )
     country.id = results[0]['id']

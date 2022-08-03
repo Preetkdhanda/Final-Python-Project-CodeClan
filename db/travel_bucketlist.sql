@@ -12,7 +12,7 @@ CREATE TABLE continents (
 CREATE TABLE countries(
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
-    continent INT REFERENCES continents(id) ON DELETE CASCADE,
+    continent_id INT REFERENCES continents(id) ON DELETE CASCADE,
     visited BOOLEAN
 
 );
@@ -21,8 +21,8 @@ CREATE TABLE cities (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
     visited BOOLEAN,
-    country INT REFERENCES countries(id) ON DELETE CASCADE,
-    continent INT REFERENCES continents(id) ON DELETE CASCADE
+    country_id INT REFERENCES countries(id) ON DELETE CASCADE,
+    continent_id INT REFERENCES continents(id) ON DELETE CASCADE
     
 
 );

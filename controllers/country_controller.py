@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 from models.country import Country
-import repositories.city_repository as city_repository
 import repositories.country_repository as country_repository
 import repositories.continent_repository as continent_repository
 

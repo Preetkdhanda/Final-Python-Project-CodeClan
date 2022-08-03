@@ -5,12 +5,12 @@
 <h2>Countries On The Bucket List!</h2>
 
 
- <section>{{country.name}}
+ <section class="show">{{country.name}}
     {% if country.visited == True %}
     Yaaas!! Another destination done!
     {% endif %}
     {% if country.visited == False %}
-    Gotta get them monies!
+    Gotta Earn That Dolla!!
     {% endif %}
     <p><a href="/countries/{{country.id}}/edit">Edit</a></p>
 </section> 

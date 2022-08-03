@@ -1,8 +1,43 @@
 
 
 footer{
-    background-color: white;
+    background-color: blanchedalmond;
+    color:grey;
+    align-content: center;
+    text-align: right;
+    height:60px;
+    font-size: 50px;
     
+}
+
+.show{
+
+text-align: center;
+color:grey;
+font-size: large;
+background-color: #ffffffcf;
+justify-content: center;
+align-items: center;
+max-width: 500px;
+max-height: 500px;
+margin-top: 200px;
+margin-left: 450px;
+background-color:  #ffffffcf;
+border-radius: 20px;
+border: white;
+background-position: 10px 10px;
+background-repeat: no-repeat;
+padding: 40px;
+display: flex;
+flex:33%;
+gap: 50px;
+
+flex-direction: column;
+}
+
+#editbutton{
+
+  size: small;
 }
 
 .places{
@@ -80,7 +115,7 @@ p {
 
     text-align: center;
     color: blanchedalmond;
-    font-size: 40px;
+    font-size: 20px;
 }
 
 
@@ -90,7 +125,31 @@ p {
   }
 
 
+  #forms{
+    justify-content: center;
+    align-items: center;
+    max-width: 500px;
+    max-height: 500px;
+    margin-top: 200px;
+    margin-left: 450px;
+    background-color:  #ffffffcf;
+    border-radius: 20px;
+    border: white;
+    color: grey;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 40px;
+    display: flex;
+    flex:33%;
+    gap: 50px;
   
+    flex-direction: column;
+    
+  }
+
+
+  
+
   /* Style the navigation menu */
   #myMenu {
     list-style-type: none;
